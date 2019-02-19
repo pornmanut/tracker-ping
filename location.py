@@ -45,7 +45,38 @@ for ip in ip4:
 result = target+'_table'
 print("Writing to "+result)
 with open(result, 'w') as fo:
+    cnt = 0  # we don't need target
     for ta in table:
+        if cnt == 0:
+            cnt = 1
+            continue
         s = ' '
         line = s.join(ta) + '\n'
         fo.write(line)
+
+cnt = 0  # we don't need target
+store = []
+for ta in table:
+    if cnt == 0:
+        cnt = 1
+        continue
+
+    if str(ta[5]) == '0' and str(ta[6]) == '0':
+        continue
+
+    line = ta[5]+' '+ta[6] + '\n'
+    store.append(line)
+
+print(str(store))
+position = []
+
+for word in store:
+    if word not in position:
+        position.append(word)
+
+result = target+'_location'
+print("Writing to "+result)
+
+with open(result, 'w') as fo:
+    for p in position:
+        fo.write(p)

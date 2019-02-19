@@ -1,3 +1,5 @@
+# start from this file if you want to use only one command
+
 import os
 import sys
 
@@ -6,7 +8,7 @@ from datetime import datetime
 
 # insert mutiple host to ping at once
 hosts = ['imgru.com', 'yandex.ru']
-
+# hosts = ['google.com']
 
 for host in hosts:
 
@@ -30,3 +32,6 @@ for host in hosts:
 
     print("Start Scarping")
     os.system('python3 location.py ' + directory + "/traceroute.txt")
+
+    print("Ploting Map")
+    os.system('python3 map.py ' + directory + "/traceroute.txt_location")
