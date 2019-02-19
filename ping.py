@@ -27,3 +27,6 @@ for host in hosts:
     os.system("traceroute -I "+host + " >> " + directory + "/traceroute.txt")
 
     print("Create " + directory + " Successfully")
+
+    print("Start Scarping")
+    os.system('python3 location.py ' + directory + "/traceroute.txt")
